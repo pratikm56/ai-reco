@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #0f2027, #2c5364);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .card {
+            backdrop-filter: blur(25px);
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 25px;
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: white;
+            color: black;
+            padding: 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .google-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .google-icon {
+            width: 20px;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+
+        @media (max-width: 768px) {
+
+            body {
+                padding-top: 100px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .grid {
+                grid-template-columns: 1fr; /* single column */
+                padding: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .btn {
+                width: 100%; /* full width buttons */
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>🚀 Welcome</h1>
+    <p>
+        Discover the best AI tools for your needs.
+        Just describe your task and we’ll recommend the perfect tools instantly.
+    </p>
+
+    <a href="/oauth2/authorization/google?prompt=select_account consent" class="google-btn">
+        <img src="https://cdn-icons-png.flaticon.com/512/2991/2991148.png" class="google-icon">
+        Continue with Google
+    </a>
+</div>
+
+</body>
+</html>

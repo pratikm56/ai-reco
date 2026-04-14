@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AI Recommender</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            padding-top: 80px;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        input {
+            font-size: 16px;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 20px;
+            outline: none;
+        }
+
+        button {
+            font-size: 16px;
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .navbar {
+            flex-wrap: wrap;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            color: white;
+            font-weight: 600;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .logout {
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+
+        .blur-circle {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(120px);
+            z-index: -1;
+        }
+
+        .one {
+            background: #00c9ff;
+            top: 10%;
+            left: 10%;
+            animation: float 6s infinite alternate;
+        }
+
+        .two {
+            background: #92fe9d;
+            bottom: 10%;
+            right: 10%;
+            animation: float 8s infinite alternate;
+        }
+
+        @keyframes float {
+            from { transform: translateY(0px); }
+            to { transform: translateY(40px); }
+        }
+
+
+        @media (max-width: 768px) {
+
+            body {
+                padding-top: 100px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .grid {
+                grid-template-columns: 1fr; /* single column */
+                padding: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .btn {
+                width: 100%; /* full width buttons */
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="navbar">
+    <h2 class="logo">🤖 AI Reco</h2>
+
+</div>
+<div class="blur-circle one"></div>
+<div class="blur-circle two"></div>
+
+<div class="container">
+    <h1>🤖 AI Recommender</h1>
+    <p>Find the perfect AI tool for your task</p>
+
+    <form action="/recommend" method="post">
+        <input type="text" name="query" placeholder="e.g. I want to edit videos..." required>
+        <button type="submit">✨ Recommend</button>
+    </form>
+</div>
+
+</body>
+</html>

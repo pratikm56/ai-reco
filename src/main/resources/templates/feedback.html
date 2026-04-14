@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Feedback</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #141e30, #243b55);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+
+        .container {
+            backdrop-filter: blur(20px);
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            animation: fadeIn 0.8s ease;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            outline: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+            border: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 10px;
+            border: none;
+            background: linear-gradient(45deg, #00c9ff, #92fe9d);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+        }
+
+        .back {
+            display: block;
+            margin-top: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+
+        @media (max-width: 768px) {
+
+            body {
+                padding-top: 100px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .nav-buttons {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .grid {
+                grid-template-columns: 1fr; /* single column */
+                padding: 15px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            .btn {
+                width: 100%; /* full width buttons */
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>💬 Your Feedback</h2>
+    <p>Help us improve our AI recommendations</p>
+
+    <form action="/feedback" method="post">
+
+        <textarea name="message" placeholder="Write your feedback..." required></textarea>
+
+        <select name="rating">
+            <option value="5">⭐ Excellent</option>
+            <option value="4">👍 Good</option>
+            <option value="3">🙂 Average</option>
+            <option value="2">😐 Poor</option>
+            <option value="1">👎 Bad</option>
+        </select>
+
+        <button type="submit">Submit Feedback</button>
+
+    </form>
+
+    <a href="/" class="back">⬅ Back to Home</a>
+</div>
+
+</body>
+</html>
