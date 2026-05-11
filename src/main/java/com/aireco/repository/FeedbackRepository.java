@@ -3,5 +3,6 @@ package com.aireco.repository;
 import com.aireco.model.Feedback;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface FeedbackRepository extends JpaRepository<Feedback, Integer> {
+public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
+
 }

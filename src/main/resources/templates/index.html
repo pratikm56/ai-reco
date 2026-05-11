@@ -152,10 +152,7 @@
 
         @media (max-width: 768px) {
 
-            body {
-                padding-top: 100px;
-            }
-
+            /* NAVBAR */
             .navbar {
                 flex-direction: column;
                 align-items: flex-start;
@@ -164,34 +161,84 @@
 
             .nav-buttons {
                 width: 100%;
+                display: flex;
                 justify-content: space-between;
             }
 
+            /* GRID → SINGLE COLUMN */
             .grid {
-                grid-template-columns: 1fr; /* single column */
+                grid-template-columns: 1fr;
                 padding: 15px;
             }
 
-            .card {
-                padding: 20px;
+            /* BUTTONS */
+            .btn {
+                width: 100%;
+                text-align: center;
             }
 
-            h2 {
+            /* TEXT */
+            h1, h2 {
                 font-size: 20px;
             }
 
-            .btn {
-                width: 100%; /* full width buttons */
-                text-align: center;
+            /* CONTAINERS */
+            .login-box, .info-section {
+                width: 95%;
+            }
+
+            body {
+                padding-top: 100px;
             }
         }
+
+        .login-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white;
+
+            background: linear-gradient(45deg, #4285F4, #34A853);
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(66,133,244,0.6);
+        }
+
+        .info-section {
+            margin:80px 20px;
+            padding: 25px;
+
+            backdrop-filter: blur(15px);
+            background: rgba(255,255,255,0.08);
+
+            border-radius: 15px;
+            color: white;
+        }
+
+        .info-section h2 {
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-bottom: 10px;
+        }
+
     </style>
 </head>
 
 <body>
 <div class="navbar">
     <h2 class="logo">🤖 AI Reco</h2>
-
+    <a href="/login" class="login-btn">
+        🔐 Login with Google
+    </a>
 </div>
 <div class="blur-circle one"></div>
 <div class="blur-circle two"></div>
